@@ -208,7 +208,7 @@ python DCOC_window_param.py \
 | Perceptron                   | learning rate `η ∈ {1e−5, 1e−4, 1e−3, 1e−2}`                                         |
 | Pegasos                      | regularization `λ ∈ {1e−4, 1e−3, 1e−2}`                                              |
 | OnlineSVM                    | `C ∈ {1e−4, 1e−3, 1e−2, 1e−1, 1, 10}`                                                |
-| Passive‑aggressive (PA)      | `PA ∈ {1e−2, 1e−1, 1}`                                                               |
+| Passive‑aggressive (PA)      | `PA ∈ {−1.0, −0.9, …, −0.1}`                                                               |
 | Ahpatron (budget perceptron) | `budget ∈ {200, 500, 800}`; `η ∈ {1e−3, 1e−2, 1e−1}`; `removal ∈ {oldest, smallest}` |
 
 ---
@@ -256,4 +256,5 @@ If you use this codebase in academic work, please cite the accompanying paper de
 ## Acknowledgments
 
 Thanks to the maintainers of the original public datasets (TripAdvisor, Yelp, Amazon) and the libraries used in this implementation.
+
 
