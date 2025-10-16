@@ -105,7 +105,7 @@ foreach ($ds in $datasets) {
 }
 ```
 
-### If you want to include noise (TRAIN only)
+### If you want to include noise 
 
 `DCOC_window_param.py` expects one feature file and one label file. To **append noise to TRAIN only**, first combine the clean and noise sets into a new pair before training (example below keeps the test set clean by passing the combined file as the *training source* when the script internally splits):
 
@@ -176,7 +176,7 @@ python DCOC_window_param.py \
 
 > If you produced noise files and want to mix them into training yourself, use the `_combined` outputs from `data/`.
 
-### Outputs (saved next to the script working directory)
+### Outputs 
 
 * `<tag>_DCOC_w<window>_Performance.csv` — mean±std over `--rounds` for Accuracy / Precision / Recall / F1, time, SV count, memory, and model bytes.
 * `<tag>_DCOC_w<window>_train.pdf` — training misclassification rate (mean±std across rounds).
@@ -200,9 +200,20 @@ python DCOC_window_param.py \
 
 * RBF kernel via `pynolca` when available; otherwise, a small pure‑NumPy RBF fallback (γ defaults to 1/d unless provided).
 
+### Grids used in the paper
+
+| Model                        | Parameter ranges                                                                     |
+| ---------------------------- | ------------------------------------------------------------------------------------ |
+| **DCOC (ours)**              | `s ∈ {−2.0, −1.75, …, −0.1}`; `α ∈ {0.25, 0.5, …, 2.0}`                              |
+| Perceptron                   | learning rate `η ∈ {1e−5, 1e−4, 1e−3, 1e−2}`                                         |
+| Pegasos                      | regularization `λ ∈ {1e−4, 1e−3, 1e−2}`                                              |
+| OnlineSVM                    | `C ∈ {1e−4, 1e−3, 1e−2, 1e−1, 1, 10}`                                                |
+| Passive‑aggressive (PA)      | `PA ∈ {1e−2, 1e−1, 1}`                                                               |
+| Ahpatron (budget perceptron) | `budget ∈ {200, 500, 800}`; `η ∈ {1e−3, 1e−2, 1e−1}`; `removal ∈ {oldest, smallest}` |
+
 ---
 
-## Model selection protocol (recommended)
+## Model selection protocol 
 
 * **5‑fold cross‑validation** on a stratified **20% subset of the training data** to pick `(s, α)` for the chosen `window`.
 * Retrain DCOC on the **full training split** with the best params; evaluate on the **held‑out test**.
@@ -245,3 +256,4 @@ If you use this codebase in academic work, please cite the accompanying paper de
 ## Acknowledgments
 
 Thanks to the maintainers of the original public datasets (TripAdvisor, Yelp, Amazon) and the libraries used in this implementation.
+
