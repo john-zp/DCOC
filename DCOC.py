@@ -346,7 +346,7 @@ if __name__ == "__main__":
     grids = {
         "DCOC": [
             {"s": s, "alpha": a}
-            for s in np.linspace(-1.0, -0.4, 10)
+            for s in np.linspace(-1.0, 0, 10)
             for a in np.linspace(0.1, 1.0, 10)
         ]
     }
