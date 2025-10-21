@@ -204,7 +204,7 @@ python DCOC_window_param.py \
 
 | Model                        | Parameter ranges                                                                     |
 | ---------------------------- | ------------------------------------------------------------------------------------ |
-| **DCOC (ours)**              | `s ∈ {−2.0, −1.75, …, −0.1}`; `α ∈ {0.25, 0.5, …, 2.0}`                              |
+| **DCOC (ours)**              | `s ∈ {−1.0, −0.9, …, 0}`; `α ∈ {0.25, 0.5, …, 2.0}`                              |
 | Perceptron                   | learning rate `η ∈ {1e−5, 1e−4, 1e−3, 1e−2}`                                         |
 | Pegasos                      | regularization `λ ∈ {1e−4, 1e−3, 1e−2}`                                              |
 | OnlineSVM                    | `C ∈ {1e−4, 1e−3, 1e−2, 1e−1, 1, 10}`                                                |
@@ -256,5 +256,6 @@ If you use this codebase in academic work, please cite the accompanying paper de
 ## Acknowledgments
 
 Thanks to the maintainers of the original public datasets (TripAdvisor, Yelp, Amazon) and the libraries used in this implementation.
+
 
 
