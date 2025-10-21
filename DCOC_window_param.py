@@ -349,7 +349,7 @@ if __name__ == "__main__":
     # DCOC grid (window is fixed via --window)
     grids_DCOC = [
         {'s': s, 'alpha': a}
-        for s in np.linspace(-1.0, -0.4, 10)
+        for s in np.linspace(-1.0, 0, 10)
         for a in np.linspace(0.1, 1.0, 10)
     ]
 
